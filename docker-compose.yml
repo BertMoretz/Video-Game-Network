@@ -17,7 +17,7 @@ services:
       - 3306:3306
     restart: unless-stopped
     volumes:
-      - ./db/sample.sql:/docker-entrypoint-initdb.d/sample.sql
+      - ./db/vgdb.sql:/docker-entrypoint-initdb.d/vgdb.sql
   phpmyadmin:
     depends_on:
       - mysql
