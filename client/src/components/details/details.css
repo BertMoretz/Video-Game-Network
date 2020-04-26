@@ -1,0 +1,127 @@
+.details-container {
+    padding: 32px;
+    max-width: 1128px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+}
+
+.game-photo {
+    min-height: 400px;
+    min-width: 300px;
+    border-radius: 8px;
+}
+
+.info-block {
+    padding: 32px 56px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.game-name {
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.game-genre {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.additional-info-container {
+    margin-top: 56px;
+}
+
+.add-info-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.add-info-data {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.add-info-summary {
+    font-weight: normal;
+}
+
+.review-cont {
+    margin-top: 32px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+}
+
+.review-header {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.no-review-header {
+    text-align: center;
+    font-size: 16px;
+}
+
+.dialog-slider {
+    margin-bottom: 24px;
+}
+
+.review-item-block {
+    border: 1px solid #d7d7d7;
+    padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.review-item-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-item-username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.review-item-age {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.review-item-rating {
+    padding: 10px;
+    font-size: 32px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.bad-rating {
+    background-color: #e2553e;
+}
+
+.av-rating {
+    background-color: #e2c776;
+}
+
+.good-rating {
+    background-color: #52af77;
+}
+
+.review-item-text {
+    border-top: 1px solid #d7d7d7;
+    margin-top: 24px;
+    font-size: 16px;
+    padding: 12px 0;
+}

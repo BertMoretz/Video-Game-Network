@@ -3,8 +3,9 @@ import axios from 'axios';
 import "./home-page.css";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {withRouter} from "react-router-dom";
 
-export default function HomePage() {
+function HomePage(props) {
     const [games, setGames] = useState(null);
 
     useEffect(() => {
@@ -16,6 +17,9 @@ export default function HomePage() {
         });
     },[]);
 
+    function goToGameDetails(id) {
+        props.history.push(`/game/${id}`);
+    }
 
     return (
         <div className={"page-container"}>
@@ -24,7 +28,13 @@ export default function HomePage() {
                     {games.map((game, index)=> (
                         <Grid key={index} container item spacing={3} xs={12} sm={6} md={3}>
                             <div className={"game-card"}
-                                 style={{ backgroundImage: 'url(' + require(`../../assets/posters/${game.image}.jpg`) + ")", backgroundSize: 'cover'}}>
+                                 style={{
+                                     backgroundImage: 'url(' + require(`../../assets/posters/${game.image}.jpg`) + ")",
+                                     backgroundSize: 'cover',
+                                     backgroundPosition: 'center'
+                                 }}
+                                 onClick={()=>goToGameDetails(game.id)}
+                            >
                                 <div className={"game-info"}>
                                     {/* TODO: SHOW NAME, CATEGORY and black-background*/}
                                 </div>
@@ -38,3 +48,5 @@ export default function HomePage() {
         </div>
     )
 }
+
+export default withRouter(HomePage);

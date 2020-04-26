@@ -8,15 +8,17 @@
     cursor: pointer;
     background-color: #ffffff;
     border-radius: 8px;
-    -webkit-box-shadow: 0 10px 35px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 10px 35px -10px rgba(0,0,0,0.75);
-    box-shadow: 0 10px 35px -10px rgba(0,0,0,0.75);
     position: relative;
     min-height: 300px;
     width: 100%;
+    transition: all 0.2s ease-out 0s;
+}
+
+.game-card:hover {
+    box-shadow: 0 10px 35px -10px rgba(0,0,0,0.75);
 }
 
 .game-info {
     position: absolute;
-    transition: all 0.3s ease-in-out 0s;
+    transition: all 0.2s ease-out 0s;
 }
