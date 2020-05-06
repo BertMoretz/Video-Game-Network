@@ -43,7 +43,7 @@ function Login(props) {
                 <div className={"text-field"}>
                     <TextField
                         id="outlined-required"
-                        label="Login"
+                        label="Username"
                         fullWidth
                         variant="outlined"
                         value={username}

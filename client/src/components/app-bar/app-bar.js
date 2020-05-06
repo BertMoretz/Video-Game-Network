@@ -20,10 +20,13 @@ function MyAppBar(props) {
                 <div className={"title"}>
                     VideoGames Network
                 </div>
+                <Button color="inherit" onClick={() => props.history.push('/')}>Home</Button>
+                {auth.isAuthenticated() && <Button color="inherit" onClick={() => props.history.push('/report')}>Popularity Report</Button>}
                 {auth.isAuthenticated() ?
                     <Button color="inherit" onClick={logOut}>Log Out</Button> :
                     <Button color="inherit" onClick={() => props.history.push('/login')}>Log In</Button>
                 }
+                {!auth.isAuthenticated() && <Button color="inherit" onClick={() => props.history.push('/register')}>Create Account</Button>}
             </Toolbar>
         </AppBar>
     )

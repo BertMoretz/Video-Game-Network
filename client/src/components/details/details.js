@@ -172,6 +172,12 @@ export default function GameDetails(props) {
                         </div>
                         <div className={"additional-info-container"}>
                             <div className={"add-info-title"}>
+                                Developers:
+                                {gameDetails.developers.map((developer, index) => (
+                                    <span key={index} className={"add-info-data"}> {developer.name}{index < gameDetails.developers.length-1 && ","}</span>
+                                ))}
+                            </div>
+                            <div className={"add-info-title"}>
                                 Platforms: <span className={"add-info-data"}>{gameDetails.platform}</span>
                             </div>
                             <div className={"add-info-title"}>

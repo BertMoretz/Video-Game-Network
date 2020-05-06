@@ -7,11 +7,14 @@ import HomePage from "./components/home-page/home-page";
 import MyAppBar from "./components/app-bar/app-bar";
 import Login from "./components/login/login";
 import GameDetails from "./components/details/details";
+import Register from "./components/register/register";
+import Report from "./components/report/report"
 
 function LoggedRoutes() {
     return (
         <Switch>
-            {/*<Redirect from="*" to="/"/>*/}
+            <Route path="/report" component={Report}/>
+            <Redirect from="*" to="/"/>
         </Switch>
     );
 }
@@ -46,6 +49,7 @@ function App() {
                       <Route exact path="/" component={HomePage}/>
                       <Route path="/game/:id" component={GameDetails}/>
                       <Route path="/login" component={Login}/>
+                      <Route path="/register" component={Register}/>
                       <ProtectedRoute path="/" component={LoggedRoutes} />
                       <Redirect from="*" to="/"/>
                   </Switch>

@@ -4,6 +4,14 @@
     margin: 0 auto;
 }
 
+.search-bar {
+    text-align: center;
+}
+
+.game-container {
+    margin: 0 !important;
+}
+
 .game-card {
     cursor: pointer;
     background-color: #ffffff;

@@ -127,3 +127,60 @@ app.post('/update-review', (req, res) => {
         }
     });
 });
+
+app.post('/register', (req, res) => {
+    const { username } = req.body;
+    const { password } = req.body;
+    const { age } = req.body;
+    const { email } = req.body;
+    const post = {
+        username: username,
+        password: password,
+        age: age,
+        email: email
+    };
+
+    pool.query(`insert into ${'user'} set ?`, post, (err, results) => {
+        if (err) {
+            console.log(err);
+            return res.status(400).send({ error: "User with this username already exists!"});
+        } else {
+            return res.send(results);
+        }
+    });
+});
+
+app.post('/popularity-update', (req, res) => {
+    const { id } = req.body;
+
+    pool.query(`update ${'videogame'} set ${'popularity'}=${'popularity'} + 1 where ${'id'}=${id}`, (err, results) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({ error: "Something went wrong!"});
+        } else {
+            return res.send(results);
+        }
+    });
+});
+
+app.get('/report-generation', (req, res) => {
+    const { limit } = req.query;
+
+    pool.query(`select ${'v.*, GROUP_CONCAT(gc.name) as developers, GROUP_CONCAT(DISTINCT a.name, ", " ,a.category, ", " , a.year SEPARATOR ";") as awards'}  
+                    from ${"videogame v"} 
+                    inner join ${"developers d"} ON ${'v.id'}=${'d.gameId'}
+                    left join ${"gameCompany gc"} on ${'gc.id'}=${'d.companyId'}
+                    left join ${'award a'} on ${'v.id'}=${'a.gameId'} or ${'a.companyId'}=${'gc.id'}
+                    group by ${'v.id'}
+                    order by ${'v.popularity'} desc
+                    limit ${limit}`, (err, results) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({ error: "Something went wrong!"});
+        } else {
+            if (results.length > 0) {
+                return res.send(results);
+            } else return res.status(404).send({ error: 'Report not generated!'});
+        }
+    });
+});

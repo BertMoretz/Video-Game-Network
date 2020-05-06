@@ -63,7 +63,8 @@ CREATE TABLE `videogame` (
   `platform` varchar(320),
   `genre` varchar(320),
   `image` int,
-  `summary` mediumtext
+  `summary` mediumtext,
+  `popularity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `developers` (
@@ -101,29 +102,29 @@ INSERT INTO `gameCompany` (`id`, `name`, `founded`, `parentCompanyId`) VALUES
 (2, 'Infinity Ward', '2002-5-01', 1),
 (5, '343industries', '2007-10-6', 3);
 
-INSERT INTO `videogame` (`id`, `name`, `releaseDate`, `platform`, `genre`, `image`, `summary`) VALUES
+INSERT INTO `videogame` (`id`, `name`, `releaseDate`, `platform`, `genre`, `image`, `summary`, `popularity`) VALUES
 (1, 'HALO Infinite', '2020-12-1', 'Xbox Series X, Xbox One, PC', 'First-Person Shooter', 1,
- 'The storyline of Halo Infinite will be "much more human", with Master Chief playing a more central role than in Halo 5: Guardians.'),
+ 'The storyline of Halo Infinite will be "much more human", with Master Chief playing a more central role than in Halo 5: Guardians.', 10),
 (2, 'Red Dead Redemption 2', '2018-10-26', 'Xbox One, Playstation 4, PC', 'Action-Adventure, Third-person', 2,
  'After a botched ferry heist in 1899, the Van der Linde gang is forced to leave its substantial money stash and flee Blackwater.
  The gang realizes that the progress of civilization is ending the time of outlaws, and so decide to gain enough money to escape the law and retire.
  The gang members rob a train owned by Leviticus Cornwall, who responds by hiring the Pinkertons to apprehend them.
- Dutch continually promises that the next heist will be their last.'),
+ Dutch continually promises that the next heist will be their last.', 15),
  (3, 'Call of Duty Modern Warfare', '2019-10-25', 'Xbox One, Playstation 4, PC', 'First-Person Shooter', 3,
  'The game takes place in a realistic and modern setting. The campaign follows a CIA officer and British SAS forces as they team up with rebels from
   the fictional country of Urzikstan, combating together against Russian forces who have invaded the country. The games Special Ops mode features
-  cooperative play missions that follow up the campaigns story.'),
+  cooperative play missions that follow up the campaigns story.', 25),
  (4, 'The Legend of Zelda: Skyward Sword', '2011-11-18', 'Nintendo Wii', 'Action-Adventure', 4,
  'Skyward Sword takes place at the beginning of the Zelda continuity: according to legend, three ancient Goddesses bestowed a great wish-granting
   power: the Triforce. The Demon King Demise sought the Triforce, and he laid waste to much of the land in his quest for it. The Goddess Hylia gathered
   the survivors and sent them into the sky, allowing her to launch a full-scale offensive against Demise. She was victorious, but the land was severely
-  damaged. Uncounted years later, the outcrop is known as Skyloft, and its people believe the "Surface" below the clouds is a myth.'),
+  damaged. Uncounted years later, the outcrop is known as Skyloft, and its people believe the "Surface" below the clouds is a myth.', 7),
  (5, 'Minecraft', '2011-11-18', 'Xbox One, Playstation 4, PC, Android, iOS, Linux, MacOs', 'Sandbox, Survival', 5,
  'In Minecraft, players explore a blocky, procedurally-generated 3D world, and may discover and extract raw materials, craft tools,
  build structures or earthworks, and depending on game mode, can fight computer-controlled "mobs", as well as either cooperate with or
  compete against other players in the same world. These modes include a survival mode, in which players must acquire resources to build
  the world and maintain health, and a creative mode, where players have unlimited resources. Players can modify the game to create new gameplay
-  mechanics, items, and assets.');
+  mechanics, items, and assets.', 12);
 
 INSERT INTO `developers` (`gameId`, `companyId`) VALUES
 (1, 3),
