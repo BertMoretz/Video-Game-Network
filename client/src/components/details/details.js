@@ -219,8 +219,7 @@ export default function GameDetails(props) {
                                 <Grid key={index} container item spacing={0} xs={12} sm={12} md={6}>
                                     <div className={"review-item-block"}>
                                         <div className={"review-item-title"}>
-                                            <span className={"review-item-username"}>{review.username},<br/>
-                                                <span className="review-item-age"> {review.age} y.o. </span>
+                                            <span className={"review-item-username"}>{review.userId},<br/>
                                             </span>
                                             <div
                                                 className={

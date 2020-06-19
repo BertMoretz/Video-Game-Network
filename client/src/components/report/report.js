@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 function Report(props) {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [limit, setLimit] = useState(10);
 
     useEffect(() => {
@@ -53,7 +53,7 @@ function Report(props) {
                 <Button color="primary" onClick={()=>setLimit(100)}>TOP 100 Games</Button>
             </div>
             <h2 style={{textAlign: "center"}}> TOP {limit} games</h2>
-            {data ?
+            {data.length > 0 ?
                 <div className={"flexer"}>
                     <Grid container spacing={0}>
                         {data.map((game, index)=> (
@@ -77,10 +77,23 @@ function Report(props) {
                                         <span className={"mini-header"}>Genre: </span> {game.genre}
                                     </div>
                                     <div className={"developers"}>
-                                        <span className={"mini-header"}>Developed by:</span> {game.developers}
+                                        <span className={"mini-header"}>Developed by:</span>
+                                        {(game && typeof game.developers === 'string') ?
+                                            game.developers :
+                                            game.developers.map((company, index) => (
+                                                <span key={index}>{company.name}{index !== game.developers.length-1 && ", "} </span>
+                                            ))
+                                        }
+
                                     </div>
                                     <div className={"developers"}>
-                                        <span className={"mini-header"}>Awards:</span> {game.awards ? game.awards : "–"}
+                                        <span className={"mini-header"}>Awards:</span> {
+                                            game.awards ? (typeof game.awards === 'string' ? game.awards :
+                                                game.awards.map((award, index) => (
+                                                    <span key={index}>{award.name}, {award.category}, {award.year} {index !== game.awards.length-1 && ", "} </span>
+                                                ))
+                                            ) : "–"
+                                        }
                                     </div>
                                 </div>
                             </Grid>
@@ -103,7 +116,12 @@ function Report(props) {
                         <div className={"stat-item"}>
                             Top Developers:
                             <div className={"stat-result"}>
-                                {data[0].developers}
+                                {(data[0] && typeof data[0].developers === 'string') ?
+                                    data[0].developers :
+                                    data[0].developers.map((company, index) => (
+                                        <span key={index}>{company.name}{index !== data[0].developers.length-1 && ", "} </span>
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
