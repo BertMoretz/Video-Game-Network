@@ -1,0 +1,118 @@
+.report-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.flexer {
+    margin-top: 12px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.stats {
+    margin-left: 32px;
+    padding: 24px;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 356px;
+    height: 356px;
+    text-align: center;
+}
+
+.stat-item {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 24px;
+    font-weight: bold;
+}
+
+.stat-result {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 24px;
+    font-weight: bold;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.game-block {
+    padding: 24px;
+    border-top: 1px solid #d7d7d7;
+    width: 100%;
+}
+
+.pop-block {
+    display: flex;
+    align-items: center;
+}
+
+.popularity-mark {
+    margin-right: 12px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.most-pop {
+    color: white;
+    background-color: #DAA520;
+    /*background:linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);*/
+}
+
+.second-pop {
+    color: white;
+    background-color: #b8c6db;
+}
+
+.third-pop {
+    color: white;
+    background: #CD7F32;
+}
+
+.other-pop {
+    color: black;
+    background-color: #d7d7d7;
+}
+
+.name-block {
+    font-weight: bold;
+    padding: 12px 0 0;
+    font-size: 24px;
+}
+
+.genre {
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.platforms {
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.developers {
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.mini-header {
+    font-style: normal;
+    font-weight: bold;
+}
+
